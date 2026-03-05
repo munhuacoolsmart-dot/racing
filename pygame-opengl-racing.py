@@ -1,4 +1,4 @@
-mport pygame
+import pygame
 from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GL.shaders import compileProgram, compileShader
@@ -145,9 +145,19 @@ def draw_track(track):
         glTexCoord2f(0,0); glVertex3f(x_outer,-0.1,z_outer); glTexCoord2f(1,1); glVertex3f(x_inner,-0.1,z_inner)
     glEnd()
 
-def draw_grass(): glBindTexture(GL_TEXTURE_2D,grass_texture); glBegin(GL_QUADS); glTexCoord2f(0,0); glVertex3f(-50,-0.2,-50)
-glTexCoord2f(1,0); glVertex3f(50,-0.2,-50); glTexCoord2f(1,1); glVertex3f(50,-0.2,50); glTexCoord2f(0,1); glVertex3f(-50,-0.2,50); glEnd()
-
+def draw_grass(): 
+    glBindTexture(GL_TEXTURE_2D,grass_texture); 
+    glBegin(GL_QUADS); 
+    glTexCoord2f(0,0); 
+    glVertex3f(-50,-0.2,-50)
+    glTexCoord2f(1,0); 
+    glVertex3f(50,-0.2,-50); 
+    glTexCoord2f(1,1); 
+    glVertex3f(50,-0.2,50); 
+    glTexCoord2f(0,1); 
+    glVertex3f(-50,-0.2,50);   
+    glEnd()
+ 
 def draw_rain():
     glColor3f(0.6,0.6,1); glBegin(GL_LINES)
     for drop in rain_particles: glVertex3f(drop["x"],drop["y"],drop["z"]); glVertex3f(drop["x"],drop["y"]-0.5,drop["z"])
@@ -211,5 +221,6 @@ while running:
     for pos,ai_car in zip(ai_positions,ai_cars): draw_car(pos[0],pos[1],ai_car["color"])
     if raining: draw_rain(); draw_puddles(t)
     pygame.display.flip()
+
 
 pygame.quit()
