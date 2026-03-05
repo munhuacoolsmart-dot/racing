@@ -146,17 +146,8 @@ def draw_track(track):
     glEnd()
 
 def draw_grass(): 
-    glBindTexture(GL_TEXTURE_2D,grass_texture); 
-    glBegin(GL_QUADS); 
-    glTexCoord2f(0,0); 
-    glVertex3f(-50,-0.2,-50)
-    glTexCoord2f(1,0); 
-    glVertex3f(50,-0.2,-50); 
-    glTexCoord2f(1,1); 
-    glVertex3f(50,-0.2,50); 
-    glTexCoord2f(0,1); 
-    glVertex3f(-50,-0.2,50);   
-    glEnd()
+    glBindTexture(GL_TEXTURE_2D,grass_texture); glBegin(GL_QUADS); glTexCoord2f(0,0); glVertex3f(-50,-0.2,-50); glTexCoord2f(1,0); glVertex3f(50,-0.2,-50); glTexCoord2f(1,1); glVertex3f(50,-0.2,50); glTexCoord2f(0,1); glVertex3f(-50,-0.2,50)
+  glEnd()
  
 def draw_rain():
     glColor3f(0.6,0.6,1); glBegin(GL_LINES)
